@@ -11,22 +11,26 @@ STUDIOで作成していたサイト（gold621218.studio.site）を、維持費�
 
 外部依存はGoogle Fonts（無料）とFormSubmit（無料のフォーム送信サービス）のみ。ビルド不要でそのまま公開できます。
 
-## 無料で公開する方法（GitHub Pages）
+## 公開状態（GitHub Pages・無料）
 
-```bash
-cd nodian-site
-gh repo create nodian-site --public --source=. --push
-gh api repos/{owner}/nodian-site/pages -X POST -f build_type=workflow 2>/dev/null || true
-```
+- リポジトリ: https://github.com/geennodian/nodian-site （geennodianアカウント）
+- 公開URL: https://nodi-an.com/ （カスタムドメイン設定済み・`CNAME`ファイル）
+- ホスティング費用: 0円（かかるのはドメイン更新料のみ）
 
-またはGitHubの画面から: リポジトリ → Settings → Pages → Branch: `main` / `(root)` → Save。
-数分で `https://<アカウント名>.github.io/nodian-site/` で公開されます。
+### DNS設定（Squarespace Domains側で必要）
 
-### 独自ドメイン（nodi-an.com など）を使う場合
+`nodi-an.com` はSquarespace Domainsで管理。以下のレコードに変更するとサイトが表示される:
 
-1. リポジトリ → Settings → Pages → Custom domain にドメインを入力
-2. ドメイン管理側でDNSを設定（CNAMEレコード: `<アカウント名>.github.io`）
-3. ドメイン代（年1,000〜2,000円程度）以外の費用はかかりません
+| 種別 | ホスト | 値 |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | geennodian.github.io |
+
+既存のSquarespace向けAレコード（198.185.159.x / 198.49.23.x）と `www → ext-sq.squarespace.com` は削除する。
+DNS反映後、リポジトリ → Settings → Pages で「Enforce HTTPS」を有効にする（証明書は自動発行・無料）。
 
 ## お問い合わせフォームについて
 
