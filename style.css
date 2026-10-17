@@ -147,7 +147,7 @@ ul { list-style: none; }
 .stats { padding: 60px 7vw 110px; }
 .stats__inner {
   max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
 }
 .stat {
   background: var(--glass); border: 1px solid var(--glass-border); border-radius: 22px;
@@ -161,8 +161,7 @@ ul { list-style: none; }
 .stat__unit { font-size: 0.5em; margin-left: 2px; }
 .stat__label { margin-top: 12px; font-size: 0.9rem; line-height: 1.7; }
 .stat__label small { color: var(--muted); font-size: 0.78rem; }
-@media (max-width: 900px) { .stats__inner { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .stats__inner { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .stats__inner { grid-template-columns: 1fr; } }
 
 /* ===== Section heads ===== */
 .sec-head { margin-bottom: 60px; }
